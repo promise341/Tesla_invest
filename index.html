@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tesla Investment — Login</title>
-<link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Investment — Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
 
 
-<div class="login-card">
-<h2>Client Login</h2>
+    <div class="login-card">
+        <h2>Client Login</h2>
 
 
-<label>Username</label>
-<input id="username" placeholder="Enter username">
+        <label>Username</label>
+        <input id="username" placeholder="Enter username">
 
 
-<label>Password</label>
-<input id="password" type="password" placeholder="Enter password">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Enter password">
 
 
-<button id="loginBtn">Login</button>
-</div>
+        <button id="loginBtn">Login</button>
+    </div>
 
+    <!-- Modal Popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Notification</h3>
+            <p id="modalMessage"></p>
+            <div class="modal-buttons">
+                <button class="modal-btn" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
 
-<script src="login.js"></script>
+    <script src="login.js"></script>
 </body>
+
 </html>
