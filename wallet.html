@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TeslaInvest — Wallet</title>
+  <link rel="stylesheet" href="wallet.css">
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla" class="tesla-logo-img">
+  <div class="user-info">
+    <div class="profile-pic">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h120" alt="User">
+    </div>
+    <span id="clientName">Carolyn Shoenert</span>
+    <button class="btn-sm" onclick="logout()">Sign Out</button>
+  </div>
+</header>
+
+<div class="dashboard">
+
+  <h1>Welcome Carolyn</h1>
+
+  <div class="wallet">
+    <div class="card">
+      <h3>Total Balance</h3>
+      <p>$ 80,000</p>
+    </div>
+    <div class="card">
+      <h3>Total Profit</h3>
+      <p>$ 0.8124</p>
+    </div>
+    <div class="card">
+      <h3>Status</h3>
+      <p class="active">Active</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <section class="balance">
+    <h2>Current USD Balance</h2>
+    <div class="balance-amount">$80,000.00</div>
+  </section>
+
+  <section>
+    <h2>Unlock Wallet</h2>
+    <input id="unlockCode" placeholder="Enter Tesla Model 3 Unlock Code">
+    <button class="btn-red" onclick="unlockWallet()">Unlock</button>
+  </section>
+
+  <section>
+    <h2>Recent Transactions</h2>
+    <div class="tx-item">
+      <strong>Amount:</strong> $15,000<br>
+      <strong>From:</strong> Tesla Empowerment<br>
+      <strong>Date:</strong> January 01, 2026
+    </div>
+    <div class="tx-item">
+      <strong>Amount:</strong> $15,000<br>
+      <strong>From:</strong> Tesla Empowerment<br>
+      <strong>Date:</strong> February 02, 2025
+    </div>
+  </section>
+
+  <section>
+    <h2>Withdraw</h2>
+    <input id="withdrawAmount" placeholder="Amount">
+    <input id="withdrawAddress" placeholder="Recipient Address">
+    <button class="btn-red" onclick="withdrawBtc()">Withdraw</button>
+    <button class="btn-outline" onclick="viewQrCode()">View Details</button>
+  </section>
+
+  <section>
+    <h2>Quick Actions</h2>
+    <button class="btn-outline" onclick="sendBtc()">Send</button>
+    <button class="btn-outline" onclick="receiveBtc()">Receive</button>
+    <button class="btn-outline" onclick="viewQrCode()">View QR Code</button>
+  </section>
+
+</div>
+
+<footer>
+  <p>
+    <a href="#">Privacy Policy</a> •
+    <a href="#">Terms of Service</a> •
+    <a href="#">Contact Support</a>
+  </p>
+</footer>
+
+<script src="wallet.js"></script>
+</body>
+</html>
