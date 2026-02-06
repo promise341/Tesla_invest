@@ -9,20 +9,20 @@
 }
 
 :root {
-  --bg: #0a0a0a;
-  --panel: #111;
-  --panel-soft: #161616;
-  --border: #222;
-  --text: #e5e5e5;
+  --bg: #1a1a1a;
+  --panel: #242424;
+  --panel-soft: #2a2a2a;
+  --border: #3a3a3a;
+  --text: #e0e0e0;
   --muted: #9ca3af;
   --accent: #e10600;
-  --accent-soft: rgba(225, 6, 0, 0.15);
+  --accent-soft: rgba(225, 6, 0, 0.12);
   --success: #22c55e;
 }
 
 body {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(1200px 600px at 50% -200px, #1a1a1a, var(--bg));
+  background: radial-gradient(1200px 600px at 50% -200px, #2a2a2a, var(--bg));
   color: var(--text);
   min-height: 100vh;
   line-height: 1.5;
@@ -34,7 +34,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(26, 26, 26, 0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 1.3rem 6%;
@@ -52,7 +52,7 @@ header {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .profile-pic {
@@ -72,16 +72,17 @@ header {
 .btn-sm {
   padding: 0.6rem 1.4rem;
   background: transparent;
-  border: 1.5px solid #444;
-  color: #ccc;
+  border: 1.5px solid #4a4a4a;
+  color: #b0b0b0;
   border-radius: 999px;
   cursor: pointer;
   transition: 0.2s ease;
+  font-weight: 400;
 }
 
 .btn-sm:hover {
-  border-color: #777;
-  background: rgba(255, 255, 255, 0.06);
+  border-color: #6a6a6a;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* ================= DASHBOARD ================= */
@@ -95,8 +96,9 @@ header {
 h1 {
   font-size: 2.4rem;
   margin-bottom: 2.4rem;
-  color: white;
+  color: var(--text);
   letter-spacing: -0.5px;
+  font-weight: 600;
 }
 
 /* ================= WALLET CARDS ================= */
@@ -108,12 +110,13 @@ h1 {
 }
 
 .card {
-  background: linear-gradient(180deg, #141414, #0f0f0f);
+  background: linear-gradient(180deg, #2a2a2a, #222222);
   border: 1px solid var(--border);
   padding: 2rem;
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card::after {
@@ -134,7 +137,7 @@ h1 {
 
 .card p {
   font-size: 2.2rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .active {
@@ -155,21 +158,23 @@ section {
   border-radius: 22px;
   padding: 2.8rem;
   margin: 3.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 section h2 {
   font-size: 1.9rem;
   margin-bottom: 1.6rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #282828;
+  border-bottom: 1px solid var(--border);
   letter-spacing: -0.3px;
+  font-weight: 600;
 }
 
 /* ================= BALANCE ================= */
 
 .balance {
   text-align: center;
-  background: linear-gradient(135deg, #151515, #0f0f0f);
+  background: linear-gradient(135deg, #2a2a2a, #222222);
 }
 
 .balance h2 {
@@ -179,7 +184,7 @@ section h2 {
 
 .balance-amount {
   font-size: clamp(3.6rem, 7vw, 6.8rem);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -2px;
   margin-top: 1rem;
 }
@@ -192,9 +197,9 @@ select {
   padding: 14px;
   margin-bottom: 16px;
   border-radius: 12px;
-  border: 1px solid #333;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  border: 1px solid var(--border);
+  background: #2a2a2a;
+  color: var(--text);
   font-size: 15px;
   outline: none;
 }
@@ -204,8 +209,8 @@ select {
 }
 
 select option {
-  background: #1a1a1a;
-  color: #fff;
+  background: #2a2a2a;
+  color: var(--text);
 }
 
 input:focus {
@@ -219,7 +224,7 @@ button {
   padding: 0.9rem 2.1rem;
   margin: 0.8rem 0.6rem 0.8rem 0;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -238,12 +243,12 @@ button {
 
 .btn-outline {
   background: transparent;
-  border: 2px solid #444;
-  color: #ccc;
+  border: 2px solid #4a4a4a;
+  color: #b0b0b0;
 }
 
 .btn-outline:hover {
-  border-color: #777;
+  border-color: #6a6a6a;
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -252,11 +257,11 @@ button {
 .tx-item {
   padding: 1.4rem 0;
   border-bottom: 1px solid var(--border);
-  color: #d1d1d1;
+  color: var(--muted);
 }
 
 .tx-item strong {
-  color: #fff;
+  color: var(--text);
 }
 
 .tx-item:last-child {
@@ -268,19 +273,117 @@ button {
 footer {
   text-align: center;
   padding: 4rem 0 3rem;
-  color: #777;
+  color: var(--muted);
   font-size: 0.95rem;
   border-top: 1px solid var(--border);
 }
 
 footer a {
-  color: #999;
+  color: #586069;
   margin: 0 1.2rem;
   text-decoration: none;
 }
 
 footer a:hover {
   color: var(--accent);
+}
+
+/* ================= MODAL POPUP ================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #2a2a2a, #222222);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.2s ease;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--text);
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-content p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.modal-buttons button {
+  margin: 0;
 }
 
 /* ================= MOBILE ================= */

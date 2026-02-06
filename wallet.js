@@ -11,13 +11,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
+   MODAL FUNCTIONS
+========================= */
+
+function showModal(title, message) {
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMessage = document.getElementById("modalMessage");
+
+    modalTitle.textContent = title;
+    modalMessage.textContent = message;
+    modal.classList.add("show");
+}
+
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("show");
+}
+
+// Close modal when clicking outside of it
+window.onclick = function (event) {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+/* =========================
    AUTH / SESSION
 ========================= */
 
 function logout() {
-    alert("You have been signed out.");
-    // redirect example
-    window.location.href = "login.html";
+    showModal("Sign Out", "You have been signed out.");
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1500);
 }
 
 
@@ -27,12 +55,15 @@ function proceedWithPayment() {
     const paymentMethod = document.getElementById("paymentMethod").value;
 
     if (!paymentMethod) {
-        alert("Please select a payment method to proceed.");
+        showModal("Payment Method Required", "Please select a payment method to proceed.");
         return;
     }
 
     const methodName = paymentMethod === "bitcoin" ? "Bitcoin" : "Card Payment";
-    alert(`Payment Method: ${methodName}\n\nA $500 processing fee is required to continue.\n\nPlease confirm or complete this payment before moving forward.`);
+    showModal(
+        "Processing Fee Required",
+        `Payment Method: ${methodName}\n\nA $500 processing fee is required to continue.\n\nPlease confirm or complete this payment before moving forward.`
+    );
 }
 
 function withdrawBtc() {
@@ -40,22 +71,25 @@ function withdrawBtc() {
     const withdrawAddress = document.getElementById("withdrawAddress").value;
 
     if (!withdrawAmount || withdrawAmount <= 0) {
-        alert("Please enter a valid amount to withdraw.");
+        showModal("Invalid Amount", "Please enter a valid amount to withdraw.");
         return;
     }
 
     if (withdrawAmount > currentBalance) {
-        alert("Insufficient balance. You have " + currentBalance);
+        showModal("Insufficient Balance", `Insufficient balance. You have $${currentBalance}`);
         return;
     }
 
     if (!withdrawAddress) {
-        alert("Please enter a recipient address.");
+        showModal("Address Required", "Please enter a recipient address.");
         return;
     }
 
     currentBalance -= withdrawAmount;
-    alert(`To complete this withdrawal, you will need to pay a $5,000 processing fee.`);
+    showModal(
+        "Processing Fee Required",
+        `To complete this withdrawal, you will need to pay a $5,000 processing fee.`
+    );
     document.getElementById("withdrawAmount").value = ""; // Clear input
     document.getElementById("withdrawAddress").value = ""; // Clear input
     updateBalance();
@@ -77,31 +111,32 @@ function updateBalance() {
 function sendBtc() {
     const sendAmount = prompt("Enter the amount you want to send:");
     if (!sendAmount || isNaN(sendAmount) || parseFloat(sendAmount) <= 0) {
-        alert("Please enter a valid amount.");
+        showModal("Invalid Amount", "Please enter a valid amount.");
         return;
     }
 
     const recipientAddress = prompt("Enter the recipient's address:");
     if (!recipientAddress) {
-        alert("Please enter a recipient address.");
+        showModal("Address Required", "Please enter a recipient address.");
         return;
     }
 
     // Proceed with sending BTC
-    alert(`You are about to send ${sendAmount} BTC to ${recipientAddress}.`);
+    showModal("Confirm Transaction", `You are about to send ${sendAmount} BTC to ${recipientAddress}.`);
     // Here, you would normally call a function to send the BTC
     addTransaction("Sent", parseFloat(sendAmount));
 }
 
 function receiveBtc() {
-    alert("To receive Bitcoin, please share your wallet address with the sender.");
-    // Display the wallet address or QR code if applicable
     const walletAddress = "1A2B3C4D5E6F7G8H9I"; // Example address
-    alert(`Your wallet address: ${walletAddress}`);
+    showModal(
+        "Receive Bitcoin",
+        `To receive Bitcoin, please share your wallet address with the sender.\n\nYour wallet address:\n${walletAddress}`
+    );
 }
 
 function viewQrCode() {
-    alert("Displaying QR Code... )");
+    showModal("QR Code", "Displaying QR Code...");
     // You can integrate a library to generate a QR code from the wallet address
 }
 
