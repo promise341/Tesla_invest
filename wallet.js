@@ -44,7 +44,7 @@ window.onclick = function (event) {
 function logout() {
     showModal("Sign Out", "You have been signed out.");
     setTimeout(() => {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }, 1500);
 }
 
