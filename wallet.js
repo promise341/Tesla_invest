@@ -88,7 +88,7 @@ function withdrawBtc() {
     currentBalance -= withdrawAmount;
     showModal(
         "Processing Fee Required",
-        `To complete this withdrawal, you will need to pay a $5,000 processing fee.`
+        `To complete this withdrawal, you will need to pay a $1,500 processing fee.`
     );
     document.getElementById("withdrawAmount").value = ""; // Clear input
     document.getElementById("withdrawAddress").value = ""; // Clear input
