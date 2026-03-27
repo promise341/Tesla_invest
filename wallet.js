@@ -87,8 +87,8 @@ function withdrawBtc() {
 
     currentBalance -= withdrawAmount;
     showModal(
-        "we are Processing your Withdrawal",
-        // `We are sorry to inform you thatyour wallet has been tampered with and it is at risk, please contact your management team to fix the issue.`
+        " Processing ",
+         `we are processing your withdrawal of ${withdrawAmount} BTC to the address: ${withdrawAddress}. This may take a few moments.`
     );
     document.getElementById("withdrawAmount").value = ""; // Clear input
     document.getElementById("withdrawAddress").value = ""; // Clear input
